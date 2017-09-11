@@ -19,7 +19,7 @@ class EditBusiness extends React.Component {
     return (
       <MainLayout>
         <div>
-          Cập Nhật Thông Tin Doanh Nghiệp
+          Update business
           <BusinessForm fnSubmit={Businesses.actions.update} cb={this.cb.bind(this)} businessId={this.props.params.id}/>
         </div>
       </MainLayout>

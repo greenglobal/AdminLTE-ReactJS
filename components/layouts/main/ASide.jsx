@@ -40,9 +40,8 @@ class ASide extends React.Component {
                 </span>
               </a>
               <ul className="treeview-menu">
-                <li className="active"><Link to="/categories"><i className="fa fa-circle-o"></i>Quản lý danh mục</Link></li>
-                <li><Link to="/businesses"><i className="fa fa-circle-o"></i>Quản lý doanh nghiệp</Link></li>
-                <li><Link to="/promotions"><i className="fa fa-circle-o"></i>Quản lý tin khuyến mãi</Link></li>
+                <li className="active"><Link to="/categories"><i className="fa fa-circle-o"></i>Categories Manager</Link></li>
+                <li><Link to="/businesses"><i className="fa fa-circle-o"></i>Businesses Manager</Link></li>
               </ul>
             </li>
 
