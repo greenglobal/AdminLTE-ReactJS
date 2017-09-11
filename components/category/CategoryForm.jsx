@@ -121,17 +121,17 @@ class CategoryForm extends React.Component {
     return (
       <div>
         <div className="form-group">
-          <label htmlFor="formCatName">Tên danh mục</label>
+          <label htmlFor="formCatName">Name</label>
           <input type="text" className="form-control" value={this.state.name} placeholder="Name" onChange={this.onInputChange.bind(this, 'name')}/>
         </div>
         <div className="form-group">
-          <label htmlFor="formCatDescription">Mô tả</label>
+          <label htmlFor="formCatDescription">Description</label>
           <textarea className="form-control" placeholder="Description" onChange={this.onInputChange.bind(this, 'description')}
             value={this.state.description}
             />
         </div>
         <div className="form-group">
-          <label htmlFor="exampleInputEmail1">Chọn lĩnh vực/danh mục:</label>
+          <label htmlFor="exampleInputEmail1">Select category:</label>
           <CategoryParentList parentCategory={this.state.parent_id} onChange={this.selectParent.bind(this)}/>
         </div>
         <div className="form-group">
@@ -145,23 +145,23 @@ class CategoryForm extends React.Component {
 
               return (
                 <div>
-                  <img className="media-object" src={img} alt="..." width="64" height="64"/> [ <a href='javascript:void(0)' onClick={this.removeLogo.bind(this)}>Xóa</a> ]
+                  <img className="media-object" src={img} alt="..." width="64" height="64"/> [ <a href='javascript:void(0)' onClick={this.removeLogo.bind(this)}>Remove</a> ]
                 </div>
               )
             })()
           }
-          <label htmlFor="exampleInputFile">Tải lên logo danh mục</label>
+          <label htmlFor="exampleInputFile">Category logo</label>
           <input ref='uploadFile' type="file" className="form-control-file" aria-describedby="fileHelp" onChange={this.handleFileUpload.bind(this)}/>
 
         </div>
 
         <button type="submit" className="btn btn-primary" onClick={this.submitForm.bind(this)}>{
             typeof this.props.categoryId == "undefined" ?
-            'Thêm danh mục'
-            : 'Cập nhật danh mục'
+            'Add new'
+            : 'Update'
           }</button>
 
-        <button type='button' className="btn" onClick={() => browserHistory.push('/categories')}>Thoát</button>
+        <button type='button' className="btn" onClick={() => browserHistory.push('/categories')}>Cancel</button>
       </div>
     )
   }

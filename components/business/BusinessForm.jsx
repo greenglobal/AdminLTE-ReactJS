@@ -132,11 +132,11 @@ class BusinessForm extends React.Component {
       <div>
         <div className="form-group">
           <label>Name</label>
-          <input type="text" className="form-control" value={this.state.name} placeholder="Tên" onChange={this.onInputChange.bind(this, 'name')}/>
+          <input type="text" className="form-control" value={this.state.name} placeholder="Name" onChange={this.onInputChange.bind(this, 'name')}/>
         </div>
         <div className="form-group">
           <label>Description</label>
-          <textarea className="form-control" placeholder="Mô tả" onChange={this.onInputChange.bind(this, 'description')}
+          <textarea className="form-control" placeholder="Description" onChange={this.onInputChange.bind(this, 'description')}
             value={this.state.description}
             />
         </div>

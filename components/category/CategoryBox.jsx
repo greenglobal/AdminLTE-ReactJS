@@ -10,7 +10,7 @@ class CategoryBox extends React.Component {
   }
 
   handleDelete(catID, e) {
-    if (confirm("Bạn có muốn xóa danh mục này?")) {
+    if (confirm("Are you sure to delete this category?")) {
       store.dispatch(Categories.actions.delete({ id: catID })).then(response => {
         // store.dispatch({
         //   type: 'REMOVE_CATEGORY',
