@@ -2,7 +2,6 @@ import React from 'react';
 import {MainLayout} from 'components/layouts';
 import {BusinessForm} from 'components/business';
 import {Businesses} from 'base/api';
-import { browserHistory } from 'react-router'
 
 class AddBusiness extends React.Component {
   constructor(props, context) {
@@ -11,7 +10,7 @@ class AddBusiness extends React.Component {
   }
   cb(response) {
     // Back to businesses list
-    browserHistory.push('/businesses');
+    this.props.history.push('/businesses');
   }
 
   render() {
@@ -25,5 +24,9 @@ class AddBusiness extends React.Component {
     );
   }
 }
+
+AddBusiness.contextTypes = {
+  router: React.PropTypes.object
+};
 
 export default AddBusiness;

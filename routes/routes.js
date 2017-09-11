@@ -1,55 +1,57 @@
 import App from 'components/app';
 import Home from 'components/home';
-import rest from "../api/rest";
+import rest from "api/rest";
+
 import {Login, ListCategories, AddCategory, EditCategory} from "components/pages";
-
 import {ListBusinesses, AddBusiness, EditBusiness} from 'components/pages/businesses';
-import {ListPromotions, AddPromotion, EditPromotion} from 'components/pages/promotions';
-
 const {actions} = rest;
 
-export default function routes(options) {
-  const {dispatch} = options;
-  return {
-    path: "/", component: App,
-    // onEnter(state, replaceState, callback) {
-    //   dispatch(actions.allQuiz.sync({}, null, callback));
-    // },
-    // onLeave() {
-    //   dispatch(actions.allQuiz.reset());
-    // }
-    indexRoute: {
-      component: Login
-    },
-    childRoutes: [
+const routes = [
+  {
+    component: App,
+    routes: [
       {
-        path: "home",
+        component: Home,
+        exact: true,
+        path: '/',
+      },
+      {
+        path: "/home",
+        exact: true,
         component: Home
       },
       {
-        path: "categories",
+        path: "/categories",
+        exact: true,
         component: ListCategories
       },
       {
-        path: "categories/add",
+        path: "/categories/add",
+        exact: true,
         component: AddCategory
       },
       {
-        path: "categories/edit/:id",
+        path: "/categories/edit/:id",
+        exact: true,
         component: EditCategory
       },
       {
-        path: "businesses",
+        path: "/businesses",
+        exact: true,
         component: ListBusinesses
       },
       {
-        path: "businesses/add",
+        path: "/businesses/add",
+        exact: true,
         component: AddBusiness
       },
       {
-        path: "businesses/edit/:id",
+        path: "/businesses/edit/:id",
+        exact: true,
         component: EditBusiness
       }
     ]
-  };
-}
+  }
+];
+
+export default routes;

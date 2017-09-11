@@ -2,7 +2,6 @@ import React from 'react';
 import {MainLayout} from 'components/layouts';
 import {CategoryForm} from 'components/category';
 import {Categories} from 'base/api';
-import { browserHistory } from 'react-router'
 
 class EditCategory extends React.Component {
   constructor(props, context) {
@@ -12,7 +11,7 @@ class EditCategory extends React.Component {
 
   cb(response) {
     // Back to categories list
-    browserHistory.push('/categories');
+    this.props.history.push('/categories');
   }
 
   render() {
@@ -26,5 +25,9 @@ class EditCategory extends React.Component {
     );
   }
 }
+
+EditCategory.contextTypes = {
+  router: React.PropTypes.object
+};
 
 export default EditCategory;

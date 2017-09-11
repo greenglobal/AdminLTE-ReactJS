@@ -1,7 +1,7 @@
 import React, {PropTypes} from 'react';
 import {MainLayout} from 'components/layouts';
 import {CategoryList} from 'components/category';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 
 class ListCategories extends React.Component {
   constructor(props, context) {
