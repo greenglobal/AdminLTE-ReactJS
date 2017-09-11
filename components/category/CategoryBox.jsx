@@ -1,6 +1,6 @@
 import React from 'react';
-import {Link} from 'react-router';
-import {store} from 'base/routes';
+import {Link} from 'react-router-dom';
+import {store} from 'base/reducers';
 import {Categories} from 'api';
 import CONFIG from 'base/constants/config';
 

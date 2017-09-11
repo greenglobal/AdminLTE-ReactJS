@@ -1,6 +1,6 @@
 'use strict';
 import React from 'react';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 
 class ASide extends React.Component {
   constructor(props, context) {

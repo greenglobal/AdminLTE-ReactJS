@@ -1,8 +1,7 @@
 import React from 'react';
-import {Link} from 'react-router';
+import {Link} from 'react-router-dom';
 import {store} from 'base/routes';
 import {Businesses} from 'api';
-import {browserHistory} from 'react-router';
 import {connect} from 'react-redux';
 import CONFIG from 'base/constants/config';
 

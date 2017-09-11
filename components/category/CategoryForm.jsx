@@ -4,7 +4,6 @@ import Promise from 'bluebird';
 import {connect} from 'react-redux';
 import {CategoryParentList} from 'components/category';
 import {Categories} from 'api';
-import {browserHistory} from 'react-router';
 import CONFIG from 'base/constants/config';
 
 class CategoryForm extends React.Component {
@@ -161,7 +160,7 @@ class CategoryForm extends React.Component {
             : 'Update'
           }</button>
 
-        <button type='button' className="btn" onClick={() => browserHistory.push('/categories')}>Cancel</button>
+        <button type='button' className="btn" onClick={() => this.props.history.push('/categories')}>Cancel</button>
       </div>
     )
   }
@@ -177,5 +176,9 @@ const mapStateToProps = function(state) {
 CategoryForm.propTypes = {
   fnSubmit: PropTypes.func.isRequired
 }
+
+CategoryForm.contextTypes = {
+  router: React.PropTypes.object
+};
 
 export default connect(mapStateToProps)(CategoryForm);

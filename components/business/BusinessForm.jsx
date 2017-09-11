@@ -4,7 +4,6 @@ import Promise from 'bluebird';
 import {connect} from 'react-redux';
 import {Categories, Businesses} from 'api';
 import {CategoryParentList} from 'components/category';
-import {browserHistory} from 'react-router';
 import CONFIG from 'base/constants/config';
 import BizGallery from './BizGallery.jsx';
 
@@ -199,7 +198,7 @@ class BusinessForm extends React.Component {
             : 'Update business'
           }</button>
 
-        <button type='button' className="btn" onClick={() => browserHistory.push('/businesses')}>Cancel</button>
+        <button type='button' className="btn" onClick={() => this.props.history.push('/businesses')}>Cancel</button>
       </div>
     )
   }
@@ -214,5 +213,9 @@ const mapStateToProps = function(state) {
 BusinessForm.propTypes = {
   fnSubmit: PropTypes.func.isRequired
 }
+
+BusinessForm.contextTypes = {
+  router: React.PropTypes.object
+};
 
 export default connect(mapStateToProps)(BusinessForm);
