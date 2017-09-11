@@ -1,7 +1,7 @@
 {
-  "name": "biz-listing",
+  "name": "greenglobal-reactjs-adminlte-boilerplate",
   "version": "0.0.1",
-  "description": "Biz Listing",
+  "description": "GreenGlobal ReactJS AdminLTE Boilerplate",
   "scripts": {
     "dev": "cross-env NODE_ENV=development webpack-dev-server --inline --hot --progress",
     "build": "cross-env NODE_ENV=production webpack -p --progress --optimize-max-chunks 15 --optimize-min-chunk-size 10000 --env.prod=true",
