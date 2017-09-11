@@ -18,7 +18,7 @@ class AddBusiness extends React.Component {
     return (
       <MainLayout>
         <div>
-          Thêm Mới Doanh Nghiệp
+          Add new business
           <BusinessForm fnSubmit={Businesses.actions.add} cb={this.cb.bind(this)}/>
         </div>
       </MainLayout>

@@ -12,8 +12,8 @@ class ListCategories extends React.Component {
     return (
       <MainLayout>
         <div>
-          <h1>Doanh nghiệp</h1>
-          [ <Link to="businesses/add">Thêm mới doanh nghiệp</Link>]
+          <h1>Businesses</h1>
+          [ <Link to="businesses/add">Add new business</Link>]
           <BusinessList/>
         </div>
       </MainLayout>

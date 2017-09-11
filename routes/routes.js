@@ -49,18 +49,6 @@ export default function routes(options) {
       {
         path: "businesses/edit/:id",
         component: EditBusiness
-      },
-      {
-        path: "promotions",
-        component: ListPromotions
-      },
-      {
-        path: "promotions/add",
-        component: AddPromotion
-      },
-      {
-        path: "promotions/edit/:id",
-        component: EditPromotion
       }
     ]
   };
