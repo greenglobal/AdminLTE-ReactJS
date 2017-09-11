@@ -65,13 +65,13 @@ class BusinessList extends React.Component {
     return (
       <div>
         <div className="form-group">
-          <label>Lọc doanh nghiệp theo danh mục:</label>
-          <CategoryParentList rootCatName='Tất cả lĩnh vực' parentCategory={this.state.selectedCatID} showAll={true} onChange={this.handleFilter.bind(this)}/>
+          <label>Filter business by category:</label>
+          <CategoryParentList rootCatName='All categories' parentCategory={this.state.selectedCatID} showAll={true} onChange={this.handleFilter.bind(this)}/>
         </div>
 
         <div className="form-group">
-          <label>Tìm doanh nghiệp theo tên</label>
-          <input type="text" className="form-control" value={this.state.title} placeholder="Tên doanh nghiệp" onChange={this.handleSearch.bind(this, 'name')}/>
+          <label>Search businesses by name</label>
+          <input type="text" className="form-control" value={this.state.title} placeholder="Business Name" onChange={this.handleSearch.bind(this, 'name')}/>
         </div>
         {
           this.props.listBusinesses.map(business => {
