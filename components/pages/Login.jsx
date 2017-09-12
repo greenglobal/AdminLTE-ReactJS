@@ -2,6 +2,13 @@ import React, {PropTypes} from 'react';
 import {LoginLayout} from 'components/layouts/login';
 
 class Login extends React.Component {
+  componentDidMount() {
+    $('input').iCheck({
+      checkboxClass: 'icheckbox_square-blue',
+      radioClass: 'iradio_square-blue',
+      increaseArea: '20%' // optional
+    });
+  }
   render() {
     return (
       <LoginLayout>

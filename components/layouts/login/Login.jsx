@@ -1,10 +1,14 @@
 import React from 'react';
+
+require('admin-lte/plugins/iCheck/icheck.min.js')
 class LoginLayout extends React.Component {
   state = {};
 
-  render() {
-    //const childrenWithProps = React.Children.map(this.props.children, (child) => React.cloneElement(child, {}));
+  componentDidMount() {
+    document.body.className += " login-page";
+  }
 
+  render() {
     return (
       <div className="login-box">
         <div className="login-logo">
