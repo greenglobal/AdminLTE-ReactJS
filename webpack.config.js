@@ -93,7 +93,8 @@ module.exports = function (env) {
         'admin-lte/plugins/knob/jquery.knob.js',
         'moment/moment.js',
         'admin-lte/plugins/daterangepicker/daterangepicker.js',
-        'admin-lte/plugins/datepicker/bootstrap-datepicker.js'
+        'admin-lte/plugins/datepicker/bootstrap-datepicker.js',
+        'icheck/icheck.js'
       ],
       app: [
         'base/index.js',
@@ -102,7 +103,7 @@ module.exports = function (env) {
         'admin-lte/bootstrap/css/bootstrap.min.css',
         'admin-lte/dist/css/AdminLTE.min.css',
         'admin-lte/dist/css/skins/_all-skins.min.css',
-        //'admin-lte/plugins/iCheck/flat/blue.css',
+        'assets/styles/icheck/square/blue.css',
         'admin-lte/plugins/morris/morris.css',
         'admin-lte/plugins/datepicker/datepicker3.css',
         'admin-lte/plugins/daterangepicker/daterangepicker.css'
