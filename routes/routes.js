@@ -11,7 +11,7 @@ const routes = [
     component: App,
     routes: [
       {
-        component: Home,
+        component: Login,
         exact: true,
         path: '/',
       },
