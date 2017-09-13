@@ -94,7 +94,8 @@ module.exports = function (env) {
         'moment/moment.js',
         'admin-lte/plugins/daterangepicker/daterangepicker.js',
         'admin-lte/plugins/datepicker/bootstrap-datepicker.js',
-        'icheck/icheck.js'
+        'icheck/icheck.js',
+        'admin-lte/dist/js/app.min.js'
       ],
       app: [
         'base/index.js',
