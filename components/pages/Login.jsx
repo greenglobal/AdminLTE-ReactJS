@@ -1,7 +1,33 @@
 import React, {PropTypes} from 'react';
+import { withRouter } from 'react-router-dom';
 import {LoginLayout} from 'components/layouts/login';
+import {login} from 'base/actions';
+import {connect} from 'react-redux';
+
+function ErrorText(props) {
+  if (!props.errText) {
+    return null;
+  } else {
+    return (
+      <div className="pt-form-helper-text">
+        <div className="pt-form-helper-text">{props.errText}</div>
+      </div>
+    )
+  }
+}
 
 class Login extends React.Component {
+  constructor(props, context) {
+    super(props, context);
+    this.state = {
+      Username: 'admin@example.com',
+      Password: '123456',
+      remember: false,
+      loading: false,
+      error: {}
+    }
+  }
+
   componentDidMount() {
     $('input').iCheck({
       checkboxClass: 'icheckbox_square-blue',
@@ -9,23 +35,79 @@ class Login extends React.Component {
       increaseArea: '20%' // optional
     });
   }
+
+  handleChange(e) {
+    this.setState({
+      [e.target.name]: e.target.value,
+    });
+  }
+
+  handleLogin() {
+    this.setState({
+      loading: true,
+      error: {}
+    });
+
+    this.props.dispatch(login(this.state.Username, this.state.Password, this.state.remember)).then(response => {
+      this.setState({loading: false});
+
+      if (response.isAuthenticated) {
+        this.props.history.push(this.props.defaultPage);
+      } else if (response.data.data.errors) {
+        let {status} = response.data;
+        let {errors} = response.data.data;
+
+        if (status === 400) {
+          let errMessages = {};
+          errors.map(item => {
+            errMessages[item.source.pointer] = item.detail;
+          });
+
+          this.setState({
+            error: errMessages
+          });
+        } else {
+          let message = 'Login fail';
+          if (errors) {
+            message = errors.detail || message;
+            this.setState({
+              error : {
+                password: 'Invalid email or password'
+              }
+            });
+          }
+        }
+      }
+    });
+  }
+
+  handleCheck(e) {
+    this.setState({
+      remember: !this.state.remember
+    });
+  }
+
   render() {
     return (
       <LoginLayout>
-        <form action="../../index2.html" method="post">
+        <form onSubmit={this.handleLogin.bind(this)} action="javascript:void(0)" noValidate>
           <div className="form-group has-feedback">
-            <input type="email" className="form-control" placeholder="Email"/>
+            <input type="email" className="form-control" placeholder="Email" value={this.state.Username} onChange={this.handleChange.bind(this)} autoFocus autoComplete = "off"
+                maxLength={40}/>
+            <ErrorText errText={this.state.error.email}/>
             <span className="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div className="form-group has-feedback">
-            <input type="password" className="form-control" placeholder="Password"/>
+            <input type="password" className="form-control" placeholder="Password" name="Password" value={this.state.Password} onChange={this.handleChange.bind(this)} autoFocus autoComplete = "off"
+                maxLength={40}/>
+            <ErrorText errText={this.state.error.password}/>
             <span className="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div className="row">
             <div className="col-xs-8">
               <div className="checkbox icheck">
                 <label>
-                  <input type="checkbox" /> Remember Me
+                  <input type="checkbox" checked={this.state.remember} onChange={this.handleCheck.bind(this)} /> Remember Me
                 </label>
               </div>
             </div>
@@ -39,4 +121,8 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+Login.defaultProps = {
+  defaultPage: "/categories"
+}
+
+export default connect()(withRouter(Login));

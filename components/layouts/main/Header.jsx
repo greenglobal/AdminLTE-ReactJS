@@ -1,10 +1,19 @@
 'use strict';
 import React from 'react';
+import { withRouter } from 'react-router-dom';
+import {logout} from 'base/actions';
+import {connect} from 'react-redux';
 
 class Header extends React.Component {
   constructor(props, context) {
     super(props, context);
 
+  }
+
+  handleLogout() {
+    this.props.dispatch(logout()).then(() => {
+      this.props.history.push('/');
+    });
   }
 
   componentDidMount() {
@@ -238,8 +247,8 @@ class Header extends React.Component {
                     <div className="pull-left">
                       <a href="#" className="btn btn-default btn-flat">Profile</a>
                     </div>
-                    <div className="pull-right">
-                      <a href="#" className="btn btn-default btn-flat">Sign out</a>
+                    <div className="pull-right" onClick={this.handleLogout.bind(this)}>
+                      <a href="javascript:void(0)" className="btn btn-default btn-flat">Sign out</a>
                     </div>
                   </li>
                 </ul>
@@ -256,4 +265,4 @@ class Header extends React.Component {
 
 }
 
-export default Header;
+export default connect()(withRouter(Header));

@@ -1,14 +1,27 @@
 import React from 'react';
 import {RenderRoutes} from 'base/routes';
+import { withRouter } from 'react-router';
 import {connect} from 'react-redux';
-
+import { Auth, User } from 'api';
+import cookie from 'react-cookie';
 import {Categories} from 'api';
+import {getUserInfo} from 'base/actions';
 
 class App extends React.Component {
   constructor(props, context) {
     super(props, context);
+    if (typeof cookie.load('accessToken') == 'undefined') {
+      this.props.history.push('/');
+    } else {
 
-    // this.props.dispatch(Categories.actions.categories());
+      this.props.dispatch(getUserInfo()).then(response => {
+        if (response.isAuthenticated) {
+          this.props.history.push(this.props.defaultPage);
+        } else {
+          this.props.history.push('/');
+        }
+      });
+    }
   }
 
   render() {
@@ -20,8 +33,12 @@ class App extends React.Component {
   }
 }
 
+App.defaultProps = {
+  defaultPage: "/categories"
+}
+
 App.contextTypes = {
   router: React.PropTypes.object
 };
 
-export default connect()(App);
+export default connect()(withRouter(App));
