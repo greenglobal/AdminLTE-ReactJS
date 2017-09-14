@@ -16,3 +16,6 @@ sudo docker run -d \
   -v /var/www/sangg/admin/build:/usr/share/nginx/html \
   nginx:1.13
 ```
+## License
+* [MIT License](https://opensource.org/licenses/MIT)
+* [AdminLTE License](https://adminlte.io/docs/2.4/license)
