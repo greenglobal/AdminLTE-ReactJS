@@ -2,8 +2,8 @@ import App from 'components/app';
 import Home from 'components/home';
 import rest from "api/rest";
 
-import {Login, ListCategories, AddCategory, EditCategory} from "components/pages";
-import {ListBusinesses, AddBusiness, EditBusiness} from 'components/pages/businesses';
+import {Login, ListCategories, AddCategory, EditCategory} from "pages";
+import {ListBusinesses, AddBusiness, EditBusiness} from 'pages/businesses';
 const {actions} = rest;
 
 const routes = [

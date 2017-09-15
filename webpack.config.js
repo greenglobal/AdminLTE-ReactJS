@@ -193,6 +193,7 @@ module.exports = function (env) {
       alias: {
         'base_styles': path.resolve(__dirname, './assets/styles/global_styles/'),
         'components': path.resolve(__dirname, './components/'),
+        'pages': path.resolve(__dirname, './pages/'),
         'assets': path.resolve(__dirname, './assets/'),
         'jquery': path.resolve(__dirname, "node_modules") + "/jquery/src/jquery.js",
         'api': path.resolve(__dirname, './api/'),
