@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {MultiLevelMenu} from 'components/UI/Menu';
+import {MultiLevelMenu, MenuItem} from 'components/UI/Menu';
 
 class ASide extends React.Component {
   constructor(props, context) {
@@ -25,10 +25,10 @@ class ASide extends React.Component {
           <form action="#" method="get" className="sidebar-form">
             <div className="input-group">
               <input type="text" name="q" className="form-control" placeholder="Search..."/>
-                  <span className="input-group-btn">
-                    <button type="submit" name="search" id="search-btn" className="btn btn-flat"><i className="fa fa-search"></i>
-                    </button>
-                  </span>
+                <span className="input-group-btn">
+                  <button type="submit" name="search" id="search-btn" className="btn btn-flat"><i className="fa fa-search"></i>
+                  </button>
+                </span>
             </div>
           </form>
           <ul className="sidebar-menu">
@@ -41,8 +41,15 @@ class ASide extends React.Component {
                 </span>
               </a>
               <ul className="treeview-menu">
-                <li className="active"><Link to="/categories"><i className="fa fa-circle-o"></i>Categories Manager</Link></li>
-                <li><Link to="/businesses"><i className="fa fa-circle-o"></i>Businesses Manager</Link></li>
+                <MenuItem to='/categories' label='Categories Manager'/>
+                <MenuItem to='/businesses' label='Businesses Manager'/>
+                <MenuItem to='#' label='Menu with icons' right={
+                  <span className="pull-right-container">
+                    <small className="label pull-right bg-yellow">12</small>
+                    <small className="label pull-right bg-green">16</small>
+                    <small className="label pull-right bg-red">5</small>
+                  </span>
+                }/>
               </ul>
             </li>
             <MultiLevelMenu/>

@@ -1,22 +1,19 @@
 import React, { Component } from 'react';
+import MenuItem from './MenuItem';
 
 let AMenu = (props) => {
   return (
     <ul className="treeview-menu">
       {props.menuItems.map(item => (
-        <li>
-          <a href="#">
-            <i className="fa fa-circle-o" /> {item.name}
-            {
-              item.children && item.children.length > 0 ?
-              (
-                <span className="pull-right-container">
-                  <i className="fa fa-angle-left pull-right"></i>
-                </span>
-              ) :
-              null
-            }
-          </a>
+        <MenuItem to='#' label={item.name} right={
+            item.children && item.children.length > 0 ?
+            (
+              <span className="pull-right-container">
+                <i className="fa fa-angle-left pull-right"></i>
+              </span>
+            ) :
+            null
+        }>
           {
             item.children && item.children.length > 0 ?
             (
@@ -24,11 +21,12 @@ let AMenu = (props) => {
             ) :
             null
           }
-        </li>
+        </MenuItem>
       ))}
     </ul>
   )
 }
+
 class MultiLevelMenu extends Component {
   constructor(props, context) {
     super(props, context);
