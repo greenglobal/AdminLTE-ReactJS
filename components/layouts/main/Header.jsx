@@ -1,19 +1,12 @@
 'use strict';
 import React from 'react';
-import { withRouter } from 'react-router-dom';
-import {logout} from 'base/actions';
 import {connect} from 'react-redux';
+import TopUserInfo from './TopUserInfo.jsx';
 
 class Header extends React.Component {
   constructor(props, context) {
     super(props, context);
 
-  }
-
-  handleLogout() {
-    this.props.dispatch(logout()).then(() => {
-      this.props.history.push('/');
-    });
   }
 
   componentDidMount() {
@@ -216,43 +209,9 @@ class Header extends React.Component {
                   </li>
                 </ul>
               </li>
-              <li className="dropdown user user-menu">
-                <a href="#" className="dropdown-toggle" data-toggle="dropdown">
-                  <img src={require('assets/images/user2-160x160.jpg')} className="user-image" alt="User Image"/>
-                  <span className="hidden-xs">Alexander Pierce</span>
-                </a>
-                <ul className="dropdown-menu">
-                  <li className="user-header">
-                    <img src={require('assets/images/user2-160x160.jpg')} className="img-circle" alt="User Image"/>
-
-                    <p>
-                      Alexander Pierce - Web Developer
-                      <small>Member since Nov. 2012</small>
-                    </p>
-                  </li>
-                  <li className="user-body">
-                    <div className="row">
-                      <div className="col-xs-4 text-center">
-                        <a href="#">Followers</a>
-                      </div>
-                      <div className="col-xs-4 text-center">
-                        <a href="#">Sales</a>
-                      </div>
-                      <div className="col-xs-4 text-center">
-                        <a href="#">Friends</a>
-                      </div>
-                    </div>
-                  </li>
-                  <li className="user-footer">
-                    <div className="pull-left">
-                      <a href="#" className="btn btn-default btn-flat">Profile</a>
-                    </div>
-                    <div className="pull-right" onClick={this.handleLogout.bind(this)}>
-                      <a href="javascript:void(0)" className="btn btn-default btn-flat">Sign out</a>
-                    </div>
-                  </li>
-                </ul>
-              </li>
+              {
+                <TopUserInfo/>
+              }
               <li>
                 <a href="#" data-toggle="control-sidebar"><i className="fa fa-gears"></i></a>
               </li>
@@ -265,4 +224,4 @@ class Header extends React.Component {
 
 }
 
-export default connect()(withRouter(Header));
+export default connect()(Header);

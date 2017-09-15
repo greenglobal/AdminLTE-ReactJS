@@ -5,7 +5,7 @@ import {connect} from 'react-redux';
 import { Auth, User } from 'api';
 import cookie from 'react-cookie';
 import {Categories} from 'api';
-import {getUserInfo} from 'base/actions';
+import {isAdmin} from 'base/actions';
 
 class App extends React.Component {
   constructor(props, context) {
@@ -14,7 +14,7 @@ class App extends React.Component {
       this.props.history.push('/');
     } else {
 
-      this.props.dispatch(getUserInfo()).then(response => {
+      this.props.dispatch(isAdmin()).then(response => {
         if (response.isAuthenticated) {
           this.props.history.push(this.props.defaultPage);
         } else {

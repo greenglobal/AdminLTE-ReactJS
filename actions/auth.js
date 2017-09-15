@@ -18,7 +18,7 @@ function login(username, password, isRememberMe) {
 
          cookie.save('accessToken', 'Bearer '+res.data.data.attributes.accessToken, expiresParams);
 
-         return dispatch(getUserInfo());
+         return dispatch(isAdmin());
       } else {
         console.log('something');
       }
@@ -31,21 +31,32 @@ function login(username, password, isRememberMe) {
   }
 }
 
+function isAdmin() {
+  return function(dispatch) {
+    return dispatch(getUserInfo()).then(response => {
+      if (response.attributes.roles == 'super_admin') {
+        return {
+          isAuthenticated: true
+        };
+      }
+      else {
+        return {
+          isAuthenticated: false
+        };
+      }
+    })
+  }
+}
+
 function getUserInfo() {
   return function(dispatch) {
     return User.actions.me.request().then(res => {
-       if (res.data.data.attributes.roles == 'super_admin') {
-         // luu thong tin user
+      dispatch({
+        type: 'CURRENT_USER',
+        user: res.data.data
+      });
 
-         return {
-           isAuthenticated: true
-         };
-       }
-       else {
-         return {
-           isAuthenticated: false
-         };
-       }
+      return res.data.data;
     }).catch( (errors) => {
       return {
         isAuthenticated: false,
@@ -63,4 +74,4 @@ function logout() {
   }
 }
 
-export {login, getUserInfo, logout};
+export {login, getUserInfo, logout, isAdmin};

@@ -1,5 +1,5 @@
 // import * as types from '../constants/ActionTypes'
 
-import {login, logout, getUserInfo} from './auth';
+import {login, logout, getUserInfo, isAdmin} from './auth';
 
-export {login, logout, getUserInfo};
+export {login, logout, getUserInfo, isAdmin};
