@@ -12,7 +12,6 @@ class TopUserInfo extends Component {
   }
 
   render() {
-    console.log(this.props.user);
     return (
       <li className="dropdown user user-menu">
         <a href="#" className="dropdown-toggle" data-toggle="dropdown">

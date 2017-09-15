@@ -1,6 +1,7 @@
 'use strict';
 import React from 'react';
 import {Link} from 'react-router-dom';
+import {MultiLevelMenu} from 'components/UI/menu';
 
 class ASide extends React.Component {
   constructor(props, context) {
@@ -44,7 +45,7 @@ class ASide extends React.Component {
                 <li><Link to="/businesses"><i className="fa fa-circle-o"></i>Businesses Manager</Link></li>
               </ul>
             </li>
-
+            <MultiLevelMenu/>
           </ul>
         </section>
       </aside>
