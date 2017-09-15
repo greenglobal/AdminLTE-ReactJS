@@ -22,7 +22,7 @@ export default function customFetch(url, options) {
       // Force logout
       cookie.remove('accessToken', {path: '/'});
 
-      window.location = "/";
+      window.location.href = "/";
 
     } else {
       return Promise.reject(error);
