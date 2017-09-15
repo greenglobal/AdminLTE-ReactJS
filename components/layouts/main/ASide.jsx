@@ -1,7 +1,7 @@
 'use strict';
 import React from 'react';
 import {Link} from 'react-router-dom';
-import {MultiLevelMenu} from 'components/UI/menu';
+import {MultiLevelMenu} from 'components/UI/Menu';
 
 class ASide extends React.Component {
   constructor(props, context) {
