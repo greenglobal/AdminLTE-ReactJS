@@ -1,17 +1,34 @@
-function showError(title, message) {
+function showError(title, message, options) {
+  return showNotification('SHOW_ERROR', title, message, options);
+}
+
+function showInfo(title, message, options) {
+  return showNotification('SHOW_INFO', title, message, options)
+}
+
+function showWarning(title, message, options) {
+  return showNotification('SHOW_WARNING', title, message, options)
+}
+
+function showSuccess(title, message, options) {
+  return showNotification('SHOW_SUCCESS', title, message, options)
+}
+
+function showNotification(type, title, message, options) {
+  options = Object.assign({}, options);
   return function(dispatch) {
     dispatch({
-      type: 'SHOW_ERROR',
-      title: 'Test title',
-      message: 'Xin chao cac ban'
+      type: type,
+      title: title,
+      message: message
     });
 
     setTimeout(() => {
       dispatch({
         type: 'CLOSE_NOTIFICATION'
       });
-    }, 3000);
+    }, options.timeout || 3000);
   }
 }
 
-export {showError};
+export {showError, showInfo, showWarning, showSuccess};
