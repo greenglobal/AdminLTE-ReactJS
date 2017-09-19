@@ -53,6 +53,17 @@ class ASide extends React.Component {
               </ul>
             </li>
             <MultiLevelMenu/>
+            <li className="active treeview">
+              <a href="#">
+                <i className="fa fa-dashboard"></i> <span>UI Components</span>
+                <span className="pull-right-container">
+                  <i className="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul className="treeview-menu">
+                <MenuItem to='/notifications' label='Notifications'/>
+              </ul>
+            </li>
           </ul>
         </section>
       </aside>
