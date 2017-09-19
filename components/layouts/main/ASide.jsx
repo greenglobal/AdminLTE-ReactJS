@@ -2,11 +2,16 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {MultiLevelMenu, MenuItem} from 'components/UI/Menu';
+import {connect} from 'react-redux';
+import * as Notification from 'base/actions/notification';
 
 class ASide extends React.Component {
   constructor(props, context) {
     super(props, context);
+  }
 
+  testNotification() {
+    this.props.dispatch(Notification.showError("Alert Box", "This is an alert box"));
   }
 
   render() {
@@ -53,6 +58,9 @@ class ASide extends React.Component {
               </ul>
             </li>
             <MultiLevelMenu/>
+            <li>
+              <button onClick={this.testNotification.bind(this)}>Test notification</button>
+            </li>
           </ul>
         </section>
       </aside>
@@ -60,4 +68,4 @@ class ASide extends React.Component {
   }
 }
 
-export default ASide;
+export default connect()(ASide);

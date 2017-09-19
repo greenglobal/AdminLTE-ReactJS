@@ -5,13 +5,15 @@ import * as API from 'api';
 import {categoriesAsTree, categoriesToHash} from 'base/reducers/categories';
 import {listBusinesses} from 'base/reducers/businesses';
 import {auth} from 'base/reducers/auth';
+import {notification} from 'base/reducers/notifications';
 
 let rootReducer = combineReducers({
   categoriesAsTree: categoriesAsTree,
   categoryHash: categoriesToHash,
   listBusinesses,
   routing: routerReducer,
-  auth
+  auth,
+  notification
 });
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
