@@ -1,3 +1,4 @@
 import ShowIf from './ShowIf.jsx';
+import validatable from './validatable';
 
-export {ShowIf};
+export {ShowIf, validatable};

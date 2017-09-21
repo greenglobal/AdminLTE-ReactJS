@@ -60,10 +60,9 @@ class ASide extends React.Component {
                   <i className="fa fa-angle-left pull-right"></i>
                 </span>
               </a>
-              <ul className="treeview-menu">
-                <MenuItem to='/notifications' label='Notifications'/>
-              </ul>
             </li>
+            <MenuItem to='/notifications' label='Notifications'/>
+            <MenuItem to='/validators' label='Validators'/>
           </ul>
         </section>
       </aside>

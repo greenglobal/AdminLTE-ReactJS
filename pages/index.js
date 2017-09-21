@@ -6,5 +6,6 @@ import EditCategory from './categories/Edit.jsx';
 import {ListBusinesses, AddBusiness, EditBusiness} from './businesses';
 
 import Notification from './Notification.jsx';
+import Validators from './Validators.jsx';
 
-export {Login, ListCategories, AddCategory, EditCategory, ListBusinesses, AddBusiness, EditBusiness, Notification};
+export {Login, ListCategories, AddCategory, EditCategory, ListBusinesses, AddBusiness, EditBusiness, Notification, Validators};

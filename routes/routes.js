@@ -2,7 +2,7 @@ import App from 'components/app';
 import Home from 'components/home';
 import rest from "api/rest";
 
-import {Login, ListCategories, AddCategory, EditCategory, Notification} from "pages";
+import {Login, ListCategories, AddCategory, EditCategory, Notification, Validators} from "pages";
 import {ListBusinesses, AddBusiness, EditBusiness} from 'pages/businesses';
 
 const {actions} = rest;
@@ -55,6 +55,11 @@ const routes = [
         path: "/notifications",
         exact: true,
         component: Notification
+      },
+      {
+        path: "/validators",
+        exact: true,
+        component: Validators
       }
     ]
   }
