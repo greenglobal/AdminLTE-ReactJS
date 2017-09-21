@@ -9,7 +9,8 @@ class Input extends React.Component {
 
     this.state = {
       value: this.props.value,
-      isValid: true
+      isValid: true,
+      validationText: this.props.validationText
     }
   }
 
@@ -17,8 +18,10 @@ class Input extends React.Component {
     this.setState({
       value: e.target.value
     });
+  }
 
-    this.props.onChange(e);
+  value() {
+    return this.state.value;
   }
 
   componentWillReceiveProps(nextProps) {
@@ -27,7 +30,7 @@ class Input extends React.Component {
         value: nextProps.value
       });
 
-      if(nextProps.require && nextProps.value.trim()) {
+      if(nextProps.required && nextProps.value.trim()) {
         this.setState({
           isValid: true
         });
@@ -44,18 +47,25 @@ class Input extends React.Component {
   }
 
   validate() {
-    if (this.state.value.trim() == '' && this.props.require) {
+    if (this.state.value.trim() == '' && this.props.required) {
       this.setState({
-        isValid: false
+        isValid: false,
+        validationText: this.props.required
       });
+
       this.input.focus();
       return false;
     } else {
       this.setState({
         isValid: true
       });
+
       return true;
     }
+  }
+
+  focus() {
+    this.input.focus();
   }
 
   handleFocus(e) {
@@ -68,22 +78,24 @@ class Input extends React.Component {
         <ShowIf condition={this.props.label != ''}>
           <label>
             { this.props.label }
-            <ShowIf condition={this.props.require}>
+            <ShowIf condition={this.props.required}>
               <span className="text-required">&nbsp;*</span>
             </ShowIf>
           </label>
         </ShowIf>
-        <input onFocus={this.handleFocus.bind(this)} style={{textAlign: this.props.align}}
-          type="text"
+        <input
+          style={{textAlign: this.props.align}}
+          type={this.props.type}
           className={ 'form-control' }
           ref={(input) => {this.input = input}}
           maxLength={this.props.maxLength}
           value={this.state.value}
           onChange={ this.onChange.bind(this) }
+          onFocus={this.handleFocus.bind(this)}
           placeholder={this.props.placeholder}
           name={this.props.name}/>
-          <ShowIf condition={!this.state.isValid && this.state.value.trim()== ''}>
-          <span className="help-block">{this.props.validationText}</span>
+          <ShowIf condition={!this.state.isValid}>
+          <span className="help-block">{this.state.validationText}</span>
         </ShowIf>
       </div>
     );
@@ -96,11 +108,12 @@ Input.propTypes = {
   onChange: PropTypes.func,
   placeholder: PropTypes.string,
   maxLength: PropTypes.number,
-  align: PropTypes.string
+  align: PropTypes.string,
+  required: PropTypes.string
 }
 
 Input.defaultProps = {
-  type: '',
+  type: 'text',
   className: 'input-group',
   label: '',
   align: 'left',
@@ -108,7 +121,7 @@ Input.defaultProps = {
     console.log('Need to assign onChange method');
   },
   placeholder: null,
-  require: false,
+  required: '',
   maxLength: 255,
   name:'',
   validationText: 'error'
