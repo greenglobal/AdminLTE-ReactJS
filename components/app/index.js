@@ -11,7 +11,7 @@ class App extends React.Component {
   constructor(props, context) {
     super(props, context);
     if (typeof cookie.load('accessToken') == 'undefined') {
-      this.props.history.push('/');
+      // this.props.history.push('/');
     } else {
 
       this.props.dispatch(isAdmin()).then(response => {

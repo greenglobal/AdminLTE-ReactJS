@@ -2,8 +2,9 @@ import App from 'components/app';
 import Home from 'components/home';
 import rest from "api/rest";
 
-import {Login, ListCategories, AddCategory, EditCategory} from "pages";
+import {Login, ListCategories, AddCategory, EditCategory, Notification} from "pages";
 import {ListBusinesses, AddBusiness, EditBusiness} from 'pages/businesses';
+
 const {actions} = rest;
 
 const routes = [
@@ -49,6 +50,11 @@ const routes = [
         path: "/businesses/edit/:id",
         exact: true,
         component: EditBusiness
+      },
+      {
+        path: "/notifications",
+        exact: true,
+        component: Notification
       }
     ]
   }

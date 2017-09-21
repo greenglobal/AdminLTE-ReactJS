@@ -2,11 +2,11 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
 import {MultiLevelMenu, MenuItem} from 'components/UI/Menu';
+import {connect} from 'react-redux';
 
 class ASide extends React.Component {
   constructor(props, context) {
     super(props, context);
-
   }
 
   render() {
@@ -25,10 +25,10 @@ class ASide extends React.Component {
           <form action="#" method="get" className="sidebar-form">
             <div className="input-group">
               <input type="text" name="q" className="form-control" placeholder="Search..."/>
-                <span className="input-group-btn">
-                  <button type="submit" name="search" id="search-btn" className="btn btn-flat"><i className="fa fa-search"></i>
-                  </button>
-                </span>
+              <span className="input-group-btn">
+                <button type="submit" name="search" id="search-btn" className="btn btn-flat"><i className="fa fa-search"></i>
+                </button>
+              </span>
             </div>
           </form>
           <ul className="sidebar-menu">
@@ -53,6 +53,17 @@ class ASide extends React.Component {
               </ul>
             </li>
             <MultiLevelMenu/>
+            <li className="active treeview">
+              <a href="#">
+                <i className="fa fa-dashboard"></i> <span>UI Components</span>
+                <span className="pull-right-container">
+                  <i className="fa fa-angle-left pull-right"></i>
+                </span>
+              </a>
+              <ul className="treeview-menu">
+                <MenuItem to='/notifications' label='Notifications'/>
+              </ul>
+            </li>
           </ul>
         </section>
       </aside>
@@ -60,4 +71,4 @@ class ASide extends React.Component {
   }
 }
 
-export default ASide;
+export default connect()(ASide);
