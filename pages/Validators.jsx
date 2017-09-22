@@ -12,7 +12,8 @@ class Validators extends React.Component {
     this.state = {
       text: '',
       email: 'SomeInvalidEmail',
-      myNumber: 123
+      myNumber: 123,
+      myNumber1: "1234535"
     }
 
     this.props.validators['testGroup'] = [];

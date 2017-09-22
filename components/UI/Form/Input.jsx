@@ -9,7 +9,7 @@ class Input extends React.Component {
     super(props, context);
 
     this.state = {
-      value: typeof this.props.value != "undefined" ? this.props.value.toString() : '',
+      value: (typeof this.props.value != "undefined" && this.props.value != null) ? this.props.value.toString() : '',
       isValid: true,
       validationText: this.props.validationText
     }
@@ -31,7 +31,7 @@ class Input extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.value != nextProps.value) {
-      let value = nextProps.value.toString() || '';
+      let value = (typeof nextProps.value != "undefined" && nextProps.value != null) ? nextProps.value.toString() : '';
 
       this.setState({
         value: value
