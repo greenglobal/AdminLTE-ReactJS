@@ -9,10 +9,12 @@ class Input extends React.Component {
     super(props, context);
 
     this.state = {
-      value: this.props.value,
+      value: this.props.value || '',
       isValid: true,
       validationText: this.props.validationText
     }
+
+    this.id = shortid();
   }
 
   onChange(e) {
@@ -26,11 +28,6 @@ class Input extends React.Component {
   value() {
     return this.state.value;
   }
-
-  componentDidMount() {
-    this.id = shortid();
-  }
-
 
   componentWillReceiveProps(nextProps) {
     if (this.props.value != nextProps.value) {

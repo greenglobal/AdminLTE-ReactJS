@@ -13,9 +13,7 @@ class EmailInput extends React.Component {
       value: this.props.value,
       isValid: true
     }
-  }
 
-  componentDidMount() {
     this.id = shortid();
   }
 
@@ -36,7 +34,7 @@ class EmailInput extends React.Component {
   }
 
   validate() {
-    let validatorHOC = this.props.validators['testEmail'][0];
+    let validatorHOC = this.props.validators[this.id][0];
     let InputComponent = validatorHOC.validator;
 
     if (!this.props.required && !InputComponent.value()) {
@@ -51,8 +49,6 @@ class EmailInput extends React.Component {
       let  pass = validatorHOC.validate();
       if (!pass)
         return pass;
-
-
 
       if (!re.test(this.value())) {
         InputComponent.setState({
@@ -77,7 +73,7 @@ class EmailInput extends React.Component {
   }
 
   value() {
-    return this.props.validators['testEmail'][0].validator.value();
+    return this.props.validators[this.id][0].validator.value();
   }
 
   render() {
@@ -93,7 +89,7 @@ class EmailInput extends React.Component {
         label={this.props.label}
         required={this.props.required}
         maxLength={this.props.maxLength}
-        bindValidator={this} channel="testEmail"
+        bindValidator={this} channel={this.id}
         validationText="This field is required"
        />
     );
