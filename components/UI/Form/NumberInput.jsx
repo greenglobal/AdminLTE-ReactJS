@@ -18,7 +18,7 @@ class NumberInput extends React.Component {
   componentDidMount() {
     this.id = shortid();
   }
-  
+
   onChange(e) {
     this.setState({
       value: e.target.value
@@ -77,6 +77,7 @@ class NumberInput extends React.Component {
         ref={(input) => {this.input = input}}
         value={this.state.value}
         placeholder={this.props.placeholder}
+        onChange={this.onChange.bind(this)}
         name={this.props.name}
         label={this.props.label}
         required={this.props.required}

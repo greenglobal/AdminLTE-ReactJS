@@ -31,8 +31,6 @@ class EmailInput extends React.Component {
     let validatorHOC = this.props.validators['testEmail'][0];
     let InputComponent = validatorHOC.validator;
 
-    console.log(this.props.validators['testEmail']);
-
     if (!this.props.required && !InputComponent.value()) {
       InputComponent.setState({
         isValid: true
