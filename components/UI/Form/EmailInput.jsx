@@ -19,6 +19,14 @@ class EmailInput extends React.Component {
     this.id = shortid();
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.value != this.props.value) {
+      this.setState({
+        value: nextProps.value
+      })
+    }
+  }
+
   onChange(e) {
     this.setState({
       value: e.target.value
