@@ -33,7 +33,7 @@ class ASide extends React.Component {
           </form>
           <ul className="sidebar-menu">
             <li className="header">MAIN NAVIGATION</li>
-            <li className="active treeview">
+            <li className="treeview">
               <a href="#">
                 <i className="fa fa-dashboard"></i> <span>Dashboard</span>
                 <span className="pull-right-container">
@@ -53,7 +53,7 @@ class ASide extends React.Component {
               </ul>
             </li>
             <MultiLevelMenu/>
-            <li className="active treeview">
+            <li className="treeview">
               <a href="#">
                 <i className="fa fa-dashboard"></i> <span>UI Components</span>
                 <span className="pull-right-container">

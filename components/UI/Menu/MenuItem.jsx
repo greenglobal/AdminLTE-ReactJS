@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import {PropTypes} from 'prop-types';
-import {NavLink} from 'react-router-dom';
+import {NavLink, withRouter} from 'react-router-dom';
 
 let MenuItem = (props) => {
+  console.log(props);
   return (
-    <li>
-      <NavLink to={props.to}><i className={props.className || 'fa fa-circle-o'}></i>{props.label}
+    <li className={props.match.path == props.to ? props.activeClassName : ''}>
+      <NavLink to={props.to} activeClassName={props.activeClassName}><i className={props.className || 'fa fa-circle-o'}></i>{props.label}
       {props.right}
       </NavLink>
       {props.children}
@@ -18,4 +19,8 @@ MenuItem.propTypes = {
   label: PropTypes.string.isRequired
 }
 
-export default MenuItem;
+MenuItem.defaultProps = {
+  activeClassName: 'active'
+}
+
+export default withRouter(MenuItem);
