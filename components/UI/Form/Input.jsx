@@ -2,6 +2,7 @@ import React from 'react';
 import { PropTypes } from 'prop-types';
 import { ShowIf } from 'components/utils';
 import {validatable} from 'components/utils';
+import shortid from 'shortid';
 
 class Input extends React.Component {
   constructor(props, context) {
@@ -18,11 +19,18 @@ class Input extends React.Component {
     this.setState({
       value: e.target.value
     });
+
+    this.props.onChange(e);
   }
 
   value() {
     return this.state.value;
   }
+
+  componentDidMount() {
+    this.id = shortid();
+  }
+
 
   componentWillReceiveProps(nextProps) {
     if (this.props.value != nextProps.value) {

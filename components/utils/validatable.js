@@ -23,6 +23,7 @@ export default function(WrappedComponent) {
 
     componentDidMount() {
       this.validator = this.refs.wrappedComponent;
+      console.log(this.validator);
 
       if (this.props.channel) {
         if (!this.validators[this.props.channel]) {
@@ -33,19 +34,13 @@ export default function(WrappedComponent) {
       }
     }
 
-    componentWillReceiveProps(nextProps) {
-      this.validator = this.refs.wrappedComponent;
-
-      if (nextProps.channel) {
-        if (!this.validators[nextProps.channel]) {
-          this.validators[nextProps.channel] = [];
-        }
-
-        this.validators[nextProps.channel].push(this);
-      }
-    }
-
     componentWillUnmount() {
+      let filterdValidators = this.validators[this.props.channel].filter(item => {
+        return !this.refs.wrappedComponent.id || this.refs.wrappedComponent.id != item.validator.id
+      });
+
+      this.validators[this.props.channel] = [...filterdValidators];
+
       this.validator = {};
     }
 

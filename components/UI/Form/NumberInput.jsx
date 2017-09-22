@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import { ShowIf } from 'components/utils';
 import {validatable} from 'components/utils';
 import Input from './Input.jsx';
+import shortid from 'shortid';
 
 class NumberInput extends React.Component {
   constructor(props, context) {
@@ -14,6 +15,10 @@ class NumberInput extends React.Component {
     }
   }
 
+  componentDidMount() {
+    this.id = shortid();
+  }
+  
   onChange(e) {
     this.setState({
       value: e.target.value
@@ -25,7 +30,7 @@ class NumberInput extends React.Component {
   validate() {
     let validatorHOC = this.props.validators['testNumber'][0];
     let InputComponent = validatorHOC.validator;
-    
+
     if (!this.props.required && !InputComponent.value()) {
       InputComponent.setState({
         isValid: true

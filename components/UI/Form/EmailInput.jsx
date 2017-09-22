@@ -3,6 +3,7 @@ import { PropTypes } from 'prop-types';
 import { ShowIf } from 'components/utils';
 import {validatable} from 'components/utils';
 import Input from './Input.jsx';
+import shortid from 'shortid';
 
 class EmailInput extends React.Component {
   constructor(props, context) {
@@ -12,6 +13,10 @@ class EmailInput extends React.Component {
       value: this.props.value,
       isValid: true
     }
+  }
+
+  componentDidMount() {
+    this.id = shortid();
   }
 
   onChange(e) {
@@ -25,6 +30,8 @@ class EmailInput extends React.Component {
   validate() {
     let validatorHOC = this.props.validators['testEmail'][0];
     let InputComponent = validatorHOC.validator;
+
+    console.log(this.props.validators['testEmail']);
 
     if (!this.props.required && !InputComponent.value()) {
       InputComponent.setState({
@@ -75,6 +82,7 @@ class EmailInput extends React.Component {
         ref={(input) => {this.input = input}}
         value={this.state.value}
         placeholder={this.props.placeholder}
+        onChange={this.onChange.bind(this)}
         name={this.props.name}
         label={this.props.label}
         required={this.props.required}

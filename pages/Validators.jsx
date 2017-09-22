@@ -35,7 +35,7 @@ class Validators extends React.Component {
   onChange(name, e) {
     this.setState({
       [name]: e.target.value
-    })
+    });
   }
 
   render() {
