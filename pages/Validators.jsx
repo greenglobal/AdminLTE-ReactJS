@@ -11,8 +11,8 @@ class Validators extends React.Component {
 
     this.state = {
       text: '',
-      email: 'sdfadasfdsa',
-      myNumber: '3423423a'
+      email: 'SomeInvalidEmail',
+      myNumber: 123
     }
 
     this.props.validators['testGroup'] = [];
@@ -52,6 +52,18 @@ class Validators extends React.Component {
 
           <NumberInput className="" label="Number" value={this.state.myNumber}
             required={'This field is required'} maxLength={40} onChange={this.onChange.bind(this, 'myNumber')} bindValidator={this} channel="testGroup"
+          validationText="Value of this field must be a number"/>
+
+          <NumberInput className="" label="Number" value={this.state.myNumber1}
+            required={'This field is required'} maxLength={40} onChange={this.onChange.bind(this, 'myNumber1')} bindValidator={this} channel="testGroup"
+          validationText="Value of this field must be a number"/>
+
+          <NumberInput className="" label="Number" value={this.state.myNumber2}
+            required={'This field is required'} maxLength={40} onChange={this.onChange.bind(this, 'myNumber2')} bindValidator={this} channel="testGroup"
+          validationText="Value of this field must be a number"/>
+
+          <NumberInput className="" label="Number" value={this.state.myNumber3}
+            required={'This field is required'} maxLength={40} onChange={this.onChange.bind(this, 'myNumber3')} bindValidator={this} channel="testGroup"
           validationText="Value of this field must be a number"/>
 
           <button type='button' onClick={this.checkValidate.bind(this)}>Test validation</button>
