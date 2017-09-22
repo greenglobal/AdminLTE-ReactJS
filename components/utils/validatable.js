@@ -23,7 +23,6 @@ export default function(WrappedComponent) {
 
     componentDidMount() {
       this.validator = this.refs.wrappedComponent;
-
       if (this.props.channel) {
         if (!this.validators[this.props.channel]) {
           this.validators[this.props.channel] = [];

@@ -13,9 +13,7 @@ class NumberInput extends React.Component {
       value: this.props.value,
       isValid: true
     }
-  }
 
-  componentDidMount() {
     this.id = shortid();
   }
 
@@ -36,7 +34,7 @@ class NumberInput extends React.Component {
   }
 
   validate() {
-    let validatorHOC = this.props.validators['testNumber'][0];
+    let validatorHOC = this.props.validators[this.id][0];
     let InputComponent = validatorHOC.validator;
 
     if (!this.props.required && !InputComponent.value()) {
@@ -74,7 +72,7 @@ class NumberInput extends React.Component {
   }
 
   value() {
-    return this.props.validators['testNumber'][0].validator.value();
+    return this.props.validators[this.id][0].validator.value();
   }
 
   render() {
@@ -90,7 +88,7 @@ class NumberInput extends React.Component {
         label={this.props.label}
         required={this.props.required}
         maxLength={this.props.maxLength}
-        bindValidator={this} channel="testNumber"
+        bindValidator={this} channel={this.id}
         validationText="This field is required"
        />
     );
