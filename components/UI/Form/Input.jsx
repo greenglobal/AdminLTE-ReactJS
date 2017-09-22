@@ -34,11 +34,13 @@ class Input extends React.Component {
 
   componentWillReceiveProps(nextProps) {
     if (this.props.value != nextProps.value) {
+      let value = nextProps.value || '';
+
       this.setState({
-        value: nextProps.value
+        value: value
       });
 
-      if(nextProps.required && nextProps.value.trim()) {
+      if (nextProps.required && value.trim()) {
         this.setState({
           isValid: true
         });
