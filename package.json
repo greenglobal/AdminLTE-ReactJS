@@ -78,6 +78,7 @@
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.2.0",
     "sass-loader": "^6.0.2",
+    "shortid": "^2.2.8",
     "thunk": "^0.0.1",
     "transfer-webpack-plugin": "^0.1.4",
     "wysihtml": "^0.6.0-beta1"
