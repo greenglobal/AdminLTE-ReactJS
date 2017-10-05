@@ -87,27 +87,21 @@ module.exports = function (env) {
 
         'jquery',
         'admin-lte/plugins/jQueryUI/jquery-ui.min.js',
-        'admin-lte/bootstrap/js/bootstrap.min.js',
-        'admin-lte/plugins/morris/morris.min.js',
-        'admin-lte/plugins/sparkline/jquery.sparkline.min.js',
-        'admin-lte/plugins/knob/jquery.knob.js',
+        'bootstrap/dist/js/bootstrap.min.js',
+        'morris.js/morris.min.js',
         'moment/moment.js',
-        'admin-lte/plugins/daterangepicker/daterangepicker.js',
-        'admin-lte/plugins/datepicker/bootstrap-datepicker.js',
         'icheck/icheck.js',
-        'admin-lte/dist/js/app.min.js'
+        'admin-lte/dist/js/adminlte.min.js'
       ],
       app: [
         'base/index.js',
         'font-awesome/less/font-awesome.less',
         'assets/styles/global.css',
-        'admin-lte/bootstrap/css/bootstrap.min.css',
+        'bootstrap/dist/css/bootstrap.min.css',
         'admin-lte/dist/css/AdminLTE.min.css',
         'admin-lte/dist/css/skins/_all-skins.min.css',
         'assets/styles/icheck/square/blue.css',
-        'admin-lte/plugins/morris/morris.css',
-        'admin-lte/plugins/datepicker/datepicker3.css',
-        'admin-lte/plugins/daterangepicker/daterangepicker.css'
+        'morris.js/morris.css'
       ]
     },
     output: {
