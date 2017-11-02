@@ -91,7 +91,7 @@ module.exports = function (env) {
         'morris.js/morris.min.js',
         'moment/moment.js',
         'icheck/icheck.js',
-        'admin-lte/dist/js/adminlte.min.js'
+        'admin-lte/dist/js/adminlte.js'
       ],
       app: [
         'base/index.js',
