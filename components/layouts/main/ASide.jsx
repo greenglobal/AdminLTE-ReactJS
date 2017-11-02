@@ -31,7 +31,7 @@ class ASide extends React.Component {
               </span>
             </div>
           </form>
-          <ul className="sidebar-menu">
+          <ul className="sidebar-menu" data-widget="tree">
             <li className="header">MAIN NAVIGATION</li>
             <li className="treeview">
               <a href="#">

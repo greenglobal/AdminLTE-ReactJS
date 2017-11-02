@@ -16,8 +16,7 @@ function login(username, password, isRememberMe) {
            expiresParams = {path: '/', maxAge: 3600*24*365};
          }
 
-         cookie.save('accessToken', 'Bearer '+res.data.data.attributes.accessToken, expiresParams);
-
+         cookie.save('accessToken', res.data.id, expiresParams);
          return dispatch(isAdmin());
       } else {
         console.log('something');
@@ -43,6 +42,9 @@ function isAdmin() {
         return {
           isAuthenticated: false
         };
+      }
+      return {
+        isAuthenticated: true
       }
     })
   }

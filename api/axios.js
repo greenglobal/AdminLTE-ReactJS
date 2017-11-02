@@ -12,7 +12,7 @@ export default function customFetch(url, options) {
   // return a promise of axios
   let at = cookie.load('accessToken');
   if (at) {
-    axios.defaults.headers.common['Authorization'] = `Bearer ${at}`;
+    axios.defaults.headers.common['Authorization'] = `${at}`;
   }
 
   axios.interceptors.response.use(function (response) {
@@ -22,7 +22,6 @@ export default function customFetch(url, options) {
       // Force logout
       cookie.remove('accessToken', {path: '/'});
 
-      window.location.href = "/";
 
     } else {
       return Promise.reject(error);

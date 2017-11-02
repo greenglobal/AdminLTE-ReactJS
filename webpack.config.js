@@ -83,15 +83,17 @@ module.exports = function (env) {
       vendor: [
         'babel-polyfill',
         'webpack-hot-middleware/client',
-
-
         'jquery',
         'admin-lte/plugins/jQueryUI/jquery-ui.min.js',
         'bootstrap/dist/js/bootstrap.min.js',
+        'fastclick/lib/fastclick.js',
         'morris.js/morris.min.js',
         'moment/moment.js',
         'icheck/icheck.js',
-        'admin-lte/dist/js/adminlte.js'
+        'admin-lte/dist/js/adminlte.min.js',
+        'jquery-sparkline/jquery.sparkline.min.js',
+        'jquery-slimscroll/jquery.slimscroll.min.js',
+        'admin-lte/dist/js/demo.js'
       ],
       app: [
         'base/index.js',

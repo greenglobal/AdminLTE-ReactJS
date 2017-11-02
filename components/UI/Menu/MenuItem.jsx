@@ -4,7 +4,7 @@ import {NavLink, withRouter} from 'react-router-dom';
 
 let MenuItem = (props) => {
   return (
-    <li className={props.match.path == props.to ? props.activeClassName : ''}>
+    <li className={props.match.path == props.to ? props.activeClassName : 'treeview'}>
       <NavLink to={props.to} activeClassName={props.activeClassName}><i className={props.className || 'fa fa-circle-o'}></i>{props.label}
       {props.right}
       </NavLink>

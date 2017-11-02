@@ -53,7 +53,7 @@ class Login extends React.Component {
 
       if (response.isAuthenticated) {
         this.props.history.push(this.props.defaultPage);
-      } else if (response.data.data.errors) {
+      } else if (response.data.errors) {
         let {status} = response.data;
         let {errors} = response.data.data;
 
