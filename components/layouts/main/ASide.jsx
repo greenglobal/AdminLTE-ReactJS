@@ -9,6 +9,10 @@ class ASide extends React.Component {
     super(props, context);
   }
 
+  componentDidMount() {
+    $(this.refs['sidebarmenu']).tree();
+  }
+
   render() {
     return (
       <aside className="main-sidebar">
@@ -31,7 +35,7 @@ class ASide extends React.Component {
               </span>
             </div>
           </form>
-          <ul className="sidebar-menu" data-widget="tree">
+          <ul className="sidebar-menu" ref='sidebarmenu'>
             <li className="header">MAIN NAVIGATION</li>
             <li className="treeview">
               <a href="#">

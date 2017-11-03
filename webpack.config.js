@@ -92,8 +92,7 @@ module.exports = function (env) {
         'icheck/icheck.js',
         'admin-lte/dist/js/adminlte.min.js',
         'jquery-sparkline/jquery.sparkline.min.js',
-        'jquery-slimscroll/jquery.slimscroll.min.js',
-        'admin-lte/dist/js/demo.js'
+        'jquery-slimscroll/jquery.slimscroll.min.js'
       ],
       app: [
         'base/index.js',
