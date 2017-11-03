@@ -15,7 +15,8 @@ class SubCategorySelectorInput extends Component {
       value: [],
       rtl: false,
       options: [],
-      subCategories: []
+      subCategories: [],
+      selectCategoryText: this.props.selectCategoryText
     };
 
     this.hashCategories = {}
@@ -46,7 +47,7 @@ class SubCategorySelectorInput extends Component {
         options
       });
 
-      this.selectCategory(options[0].value);
+      // this.selectCategory(options[0].value);
     }
   }
 
@@ -61,7 +62,8 @@ class SubCategorySelectorInput extends Component {
     });
 
     this.setState({
-      subCategories
+      subCategories,
+      selectCategoryText: this.hashCategories[categoryId].name
     });
 
     // this.refs.selector.focus();
@@ -81,7 +83,7 @@ class SubCategorySelectorInput extends Component {
 
         <div className="dropdown">
           <button className="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-            Select a category
+            {this.state.selectCategoryText}
             <span className="caret"></span>
           </button>
 
@@ -129,7 +131,8 @@ SubCategorySelectorInput.propTypes = {
 SubCategorySelectorInput.defaultProps = {
   onChange: function() {
     console.log('You need to implement onChange method for CategorySelectorInput');
-  }
+  },
+  selectCategoryText: 'Select a category'
 }
 
 
