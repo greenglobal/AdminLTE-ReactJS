@@ -16,14 +16,14 @@ class TopUserInfo extends Component {
       <li className="dropdown user user-menu">
         <a href="#" className="dropdown-toggle" data-toggle="dropdown">
           <img src={require('assets/images/user2-160x160.jpg')} className="user-image" alt="User Image"/>
-          <span className="hidden-xs">{this.props.user ? this.props.user.attributes.email: ''}</span>
+          <span className="hidden-xs">{this.props.user ? this.props.user.email: ''}</span>
         </a>
         <ul className="dropdown-menu">
           <li className="user-header">
             <img src={require('assets/images/user2-160x160.jpg')} className="img-circle" alt="User Image"/>
 
             <p>
-              {this.props.user ? this.props.user.attributes.email: ''}
+              {this.props.user ? this.props.user.email: ''}
               <small>Member since Nov. 2012</small>
             </p>
           </li>

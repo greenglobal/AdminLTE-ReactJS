@@ -33,18 +33,16 @@ function login(username, password, isRememberMe) {
 function isAdmin() {
   return function(dispatch) {
     return dispatch(getUserInfo()).then(response => {
-      if (response.attributes.roles == 'super_admin') {
-        return {
-          isAuthenticated: true
-        };
-      }
-      else {
-        return {
-          isAuthenticated: false
-        };
-      }
+      let isAuthenticated = false;
+      response.roles && response.roles.length > 0 && response.roles.map(role => {
+        if (role.name == 'admin') {
+          isAuthenticated = true;
+        }
+      });
+
       return {
-        isAuthenticated: true
+        isAuthenticated,
+        data: {}
       }
     })
   }
@@ -55,10 +53,10 @@ function getUserInfo() {
     return User.actions.me.request().then(res => {
       dispatch({
         type: 'CURRENT_USER',
-        user: res.data.data
+        user: res.data
       });
 
-      return res.data.data;
+      return res.data;
     }).catch( (errors) => {
       return {
         isAuthenticated: false,

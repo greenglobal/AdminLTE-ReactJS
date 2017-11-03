@@ -99,6 +99,7 @@ module.exports = function (env) {
         'base/index.js',
         'font-awesome/less/font-awesome.less',
         'assets/styles/global.css',
+        'react-select/dist/react-select.css',
         'bootstrap/dist/css/bootstrap.min.css',
         'admin-lte/dist/css/AdminLTE.min.css',
         'admin-lte/dist/css/skins/_all-skins.min.css',

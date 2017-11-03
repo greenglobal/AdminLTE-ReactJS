@@ -16,11 +16,14 @@ class App extends React.Component {
 
       this.props.dispatch(isAdmin()).then(response => {
         if (response.isAuthenticated) {
-          this.props.history.push(this.props.defaultPage);
+          // this.props.history.push(this.props.defaultPage);
         } else {
           this.props.history.push('/');
         }
       });
+
+
+      this.props.dispatch(Categories.actions.list({}, null, {}))
     }
   }
 
