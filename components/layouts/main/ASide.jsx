@@ -7,10 +7,20 @@ import {connect} from 'react-redux';
 class ASide extends React.Component {
   constructor(props, context) {
     super(props, context);
+
+    this.state = {}
   }
 
   componentDidMount() {
     $(this.refs['sidebarmenu']).tree();
+
+    $('ul').on('expanded.tree', (e) => {
+
+    })
+
+    $('ul').on('collapsed.tree', () => {
+      
+    })
   }
 
   render() {
