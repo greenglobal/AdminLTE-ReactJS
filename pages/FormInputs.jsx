@@ -29,12 +29,12 @@ class FormInputs extends React.Component {
       <MainLayout>
         <div>
           <CategorySelectorInput label="Chọn lĩnh vực kinh doanh"
-              onChange={this.selectCategories.bind(this)}
-            />
+            onChange={this.selectCategories.bind(this)}
+          />
 
           <SubCategorySelectorInput label="Chọn nhóm sản phẩm"
-              onChange={this.selectCategories.bind(this)}
-            />
+            onChange={this.selectCategories.bind(this)}
+          />
         </div>
       </MainLayout>
     );
