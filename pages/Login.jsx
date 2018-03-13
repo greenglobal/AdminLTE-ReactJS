@@ -36,9 +36,9 @@ class Login extends React.Component {
     });
   }
 
-  handleChange(e) {
+  handleChange(name, e) {
     this.setState({
-      [e.target.name]: e.target.value,
+      [name]: e.target.value,
     });
   }
 
@@ -53,7 +53,7 @@ class Login extends React.Component {
 
       if (response.isAuthenticated) {
         this.props.history.push(this.props.defaultPage);
-      } else if (response.data.data.errors) {
+      } else if (response.data.errors) {
         let {status} = response.data;
         let {errors} = response.data.data;
 
@@ -92,13 +92,13 @@ class Login extends React.Component {
       <LoginLayout>
         <form onSubmit={this.handleLogin.bind(this)} action="javascript:void(0)" noValidate>
           <div className="form-group has-feedback">
-            <input type="email" className="form-control" placeholder="Email" value={this.state.Username} onChange={this.handleChange.bind(this)} autoFocus autoComplete = "off"
+            <input type="email" className="form-control" placeholder="Email" value={this.state.Username} onChange={this.handleChange.bind(this, 'Username')} autoFocus autoComplete = "off"
                 maxLength={40}/>
             <ErrorText errText={this.state.error.email}/>
             <span className="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
           <div className="form-group has-feedback">
-            <input type="password" className="form-control" placeholder="Password" name="Password" value={this.state.Password} onChange={this.handleChange.bind(this)} autoFocus autoComplete = "off"
+            <input type="password" className="form-control" placeholder="Password" name="Password" value={this.state.Password} onChange={this.handleChange.bind(this, 'Password')} autoFocus autoComplete = "off"
                 maxLength={40}/>
             <ErrorText errText={this.state.error.password}/>
             <span className="glyphicon glyphicon-lock form-control-feedback"></span>

@@ -7,6 +7,20 @@ import {connect} from 'react-redux';
 class ASide extends React.Component {
   constructor(props, context) {
     super(props, context);
+
+    this.state = {}
+  }
+
+  componentDidMount() {
+    $(this.refs['sidebarmenu']).tree();
+
+    $('ul').on('expanded.tree', (e) => {
+
+    })
+
+    $('ul').on('collapsed.tree', () => {
+      
+    })
   }
 
   render() {
@@ -31,7 +45,7 @@ class ASide extends React.Component {
               </span>
             </div>
           </form>
-          <ul className="sidebar-menu">
+          <ul className="sidebar-menu" ref='sidebarmenu'>
             <li className="header">MAIN NAVIGATION</li>
             <li className="treeview">
               <a href="#">
@@ -60,6 +74,11 @@ class ASide extends React.Component {
                   <i className="fa fa-angle-left pull-right"></i>
                 </span>
               </a>
+              <ul className="treeview-menu">
+                <MenuItem to='/form-inputs' label='Form Inputs'/>
+                <MenuItem to='/menus' label='Menu'/>
+              </ul>
+
             </li>
             <MenuItem to='/notifications' label='Notifications'/>
             <MenuItem to='/validators' label='Validators'/>

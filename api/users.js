@@ -8,7 +8,7 @@ const limit = 20;
 // Example
 const rest = reduxApi({
   me: {
-    url: 'me',
+    url: 'users/me',
     options: {
       method: "GET"
     }

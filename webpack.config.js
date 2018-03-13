@@ -76,27 +76,34 @@ module.exports = function (env) {
     );
   }
 
+  let appVendors = [
+    'babel-polyfill',,
+    'jquery',
+    'admin-lte/plugins/jQueryUI/jquery-ui.min.js',
+    'bootstrap/dist/js/bootstrap.min.js',
+    'fastclick/lib/fastclick.js',
+    'morris.js/morris.min.js',
+    'moment/moment.js',
+    'icheck/icheck.js',
+    'admin-lte/dist/js/adminlte.min.js',
+    'jquery-sparkline/jquery.sparkline.min.js',
+    'jquery-slimscroll/jquery.slimscroll.min.js'
+  ];
+
+  if (!isProd) {
+    appVendors.push('webpack-hot-middleware/client')
+  }
+
   return {
     devtool: isProd ? 'source-map' : 'eval-source-map',
     context: sourcePath,
     entry: {
-      vendor: [
-        'babel-polyfill',
-        'webpack-hot-middleware/client',
-
-
-        'jquery',
-        'admin-lte/plugins/jQueryUI/jquery-ui.min.js',
-        'bootstrap/dist/js/bootstrap.min.js',
-        'morris.js/morris.min.js',
-        'moment/moment.js',
-        'icheck/icheck.js',
-        'admin-lte/dist/js/adminlte.js'
-      ],
+      vendor: appVendors,
       app: [
         'base/index.js',
         'font-awesome/less/font-awesome.less',
         'assets/styles/global.css',
+        'react-select/dist/react-select.css',
         'bootstrap/dist/css/bootstrap.min.css',
         'admin-lte/dist/css/AdminLTE.min.css',
         'admin-lte/dist/css/skins/_all-skins.min.css',
