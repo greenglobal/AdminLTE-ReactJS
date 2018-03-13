@@ -16,8 +16,7 @@ function login(username, password, isRememberMe) {
            expiresParams = {path: '/', maxAge: 3600*24*365};
          }
 
-         cookie.save('accessToken', 'Bearer '+res.data.data.attributes.accessToken, expiresParams);
-
+         cookie.save('accessToken', res.data.id, expiresParams);
          return dispatch(isAdmin());
       } else {
         console.log('something');
@@ -34,15 +33,16 @@ function login(username, password, isRememberMe) {
 function isAdmin() {
   return function(dispatch) {
     return dispatch(getUserInfo()).then(response => {
-      if (response.attributes.roles == 'super_admin') {
-        return {
-          isAuthenticated: true
-        };
-      }
-      else {
-        return {
-          isAuthenticated: false
-        };
+      let isAuthenticated = false;
+      response.roles && response.roles.length > 0 && response.roles.map(role => {
+        if (role.name == 'admin') {
+          isAuthenticated = true;
+        }
+      });
+
+      return {
+        isAuthenticated,
+        data: {}
       }
     })
   }
@@ -53,10 +53,10 @@ function getUserInfo() {
     return User.actions.me.request().then(res => {
       dispatch({
         type: 'CURRENT_USER',
-        user: res.data.data
+        user: res.data
       });
 
-      return res.data.data;
+      return res.data;
     }).catch( (errors) => {
       return {
         isAuthenticated: false,

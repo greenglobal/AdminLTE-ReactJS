@@ -8,7 +8,7 @@ const limit = 20;
 // Example
 const rest = reduxApi({
   signin: {
-    url: `/auth/login`,
+    url: `/users/login`,
     options: (url, params, getState) => {
       return {
         method: 'POST',
@@ -17,7 +17,7 @@ const rest = reduxApi({
     }
  },
  signout: {
-  url: `/auth/logout`,
+  url: `/users/logout`,
   options: (url, params, getState) => {
     return {
       method: 'POST',

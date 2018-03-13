@@ -5,7 +5,7 @@ function categoriesAsTree(state = initialState, action) {
   switch (action.type) {
     case 'CATEGORIES_TO_TREE':
       let tree = createTreeFromFlatArray(action.categories, {
-        parentProperty: 'parent_id'
+        parentProperty: 'parentId'
       });
 
       return [
